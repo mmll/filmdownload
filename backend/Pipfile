@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+name = "pypi"
+verify_ssl = true
+
+[packages]
+sqlalchemy = "*"
+"psycopg2-binary" = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.4"

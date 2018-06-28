@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <mat-toolbar>
+    <span>Film Download</span>
+  </mat-toolbar>
+  <div>
+    <mat-form-field class="example-full-width">
+      <input #searchInput  matInput placeholder="Film Seach" value="">
+    </mat-form-field> 
+    <button mat-fab color="primary" (click)="SearchFile(searchInput.value)">Search</button>
+  </div>
+</div>
