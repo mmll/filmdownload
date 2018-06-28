@@ -17,6 +17,7 @@ CORS(app)
 def search_film(keyword):
     service = scrapeService()
 	result = service.getFilm('http://www.zimuzu.tv/search/index?keyword=','keyword')
+	print('get result')
     return jsonify(result)
 
 
