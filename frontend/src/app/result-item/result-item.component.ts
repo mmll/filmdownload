@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultItemComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+  	public domain: string;
+  	public title: string;
+  	public link: string;
+  	public description: string;
 
-  ngOnInit() {
   }
 
 }

@@ -1,26 +1,27 @@
-from .entities.entity import Session, engine, Base
-from .entities.exam import Exam
+# coding=utf-8
 
-# generate database schema
-Base.metadata.create_all(engine)
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+from scrap_service import scrapeService
 
-# start session
-session = Session()
 
-# check for existing data
-exams = session.query(Exam).all()
+# creating the Flask application
+app = Flask(__name__)
+CORS(app)
 
-if len(exams) == 0:
-    # create and persist dummy exam
-    python_exam = Exam("SQLAlchemy Exam", "Test your knowledge about SQLAlchemy.", "script")
-    session.add(python_exam)
-    session.commit()
-    session.close()
+# if needed, generate database schema
 
-    # reload exams
-    exams = session.query(Exam).all()
 
-# show existing exams
-print('### Exams:')
-for exam in exams:
-    print('({exam.id}) {exam.title} - {exam.description}')
+
+@app.route('/search/<keyword>')
+def search_film(keyword):
+    service = scrapeService()
+	result = service.getFilm('http://www.zimuzu.tv/search/index?keyword=','keyword')
+    return jsonify(result)
+
+
+@app.route('/exams', methods=['POST'])
+def add_exam():
+    # mount exam object
+
+    return jsonify('hello'), 201

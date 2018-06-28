@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class FilmService {
  
-  configUrl = 'http://www.zimuzu.tv/search?keyword=%E8%A5%BF%E9%83%A8%E4%B8%96%E7%95%8C';
+  configUrl = 'http://localhost:5000/search/hello';
   //document.domain = 's.ygdy8.com';
   constructor(private http: HttpClient) { }
 
