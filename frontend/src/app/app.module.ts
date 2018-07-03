@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule, MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 import { ResultItemComponent } from './result-item/result-item.component';
 import { HttpClientModule }  from '@angular/common/http';
-import { FilmService} from './film.service'
+import { FilmService } from './film.service';
+import { Film } from './entity/film';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +18,15 @@ import { FilmService} from './film.service'
     BrowserModule,
     MatToolbarModule, 
     MatInputModule,
+    MatCardModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
+  ],
+  exports: [
+    AppComponent,
+    ResultItemComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

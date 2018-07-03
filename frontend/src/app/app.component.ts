@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import {FilmService} from './film.service'
+import { Component , OnInit} from '@angular/core';
+import {MatTableDataSource, MatInputModule} from '@angular/material';
+import {FilmService} from './film.service';
+import {Film} from './entity/film';
+import {ResultItemComponent} from './result-item/result-item.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = '';
+  films: Film[];
 
   constructor(private filmService:FilmService){
 
@@ -17,8 +19,7 @@ export class AppComponent{
   ngOnInit(){
 
   }
-  SearchFile(value){
-  	
-  	let result = this.filmService.getResults(value);
+  SearchFilm(value): void{
+  	this.filmService.getResults(value).subscribe(res=>this.films = res.result);
   }
 }

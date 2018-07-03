@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatCard } from '@angular/material/card';
+import {Film} from '../entity/film';
 
 @Component({
   selector: 'app-result-item',
@@ -6,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-item.component.css']
 })
 export class ResultItemComponent implements OnInit {
-
+  @Input('item') item: Film;
   constructor() { 
-  	public domain: string;
-  	public title: string;
-  	public link: string;
-  	public description: string;
 
   }
+  ngOnInit(){
 
+  }
 }

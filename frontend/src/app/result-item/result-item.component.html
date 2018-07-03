@@ -1,3 +1,11 @@
-<p>
-  result-item works!
-</p>
+<mat-card class="item">
+  	<mat-card-header>
+  		<mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+ 		<mat-card-subtitle> | {{item.domain}}</mat-card-subtitle>
+ 	</mat-card-header>
+ <mat-card-content>{{item.title}}</mat-card-content>
+  	<mat-card-actions>
+    <button mat-button>Download</button>
+  </mat-card-actions>
+</mat-card>
+
