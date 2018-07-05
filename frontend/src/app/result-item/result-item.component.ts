@@ -15,4 +15,7 @@ export class ResultItemComponent implements OnInit {
   ngOnInit(){
 
   }
+  downloadFilm(){
+  	window.open(this.item.link)
+  }
 }

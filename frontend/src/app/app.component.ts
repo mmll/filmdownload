@@ -20,6 +20,6 @@ export class AppComponent implements OnInit{
 
   }
   SearchFilm(value): void{
-  	this.filmService.getResults(value).subscribe(res=>this.films = res.result);
+  	this.filmService.getResults(value).subscribe(res=>{(res.result)this.films = res.result});
   }
 }

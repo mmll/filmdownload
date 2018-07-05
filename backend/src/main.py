@@ -21,19 +21,20 @@ CORS(app)
 #         print(film)
 #     return result
 
-def scrapZimuzu(domain, soup):
+def scrap_zimuzu(domain, soup):
     filmItemList = soup.find_all('div',attrs={'class':'search-item'})
     result = []
     for item in filmItemList:
-        title = item.find('strong', attrs={'class': 'list_title'}).text.strip()
-        link = item.find('div', attrs={'class': 'fl-info'}).find('a').get('href')
-        description = item.find('em').text.strip()
-        film = Film(domain.name, title, link, description)
-        result.append(film)
-        print(film)
+        link = domain.id+item.find('div', attrs={'class': 'fl-info'}).find('a').get('href')
+        if "/resource/" in link:
+            title = item.find('strong', attrs={'class': 'list_title'}).text.strip()
+            description = item.find('em').text.strip()
+            film = Film(domain.name, title, link, description)
+            result.append(film)
+            print(film)
     return result
 
-def scrapTang(domain, soup):
+def scrap_tang(domain, soup):
     filmItemTable = soup.find('div',attrs={'class':'co_content8'}).find_all('table')
     result = []
     for item in filmItemTable:
@@ -46,8 +47,9 @@ def scrapTang(domain, soup):
     return result
 
 Domainlist = [
-    Domain('zimuzu', 'http://www.zimuzu.tv/search/index?keyword=', scrapZimuzu),
-    Domain('电影天堂', 'http://s.ygdy8.com/plus/so.php?kwtype=0&keyword=', scrapTang)]
+    Domain('http://www.zimuzu.tv','字幕组', 'http://www.zimuzu.tv/search/index?keyword=', scrap_zimuzu),
+    Domain('http://s.ygdy8.com','电影天堂', 'http://s.ygdy8.com/plus/so.php?kwtype=0&keyword=', scrap_tang)
+    ]
 
 # if needed, generate database schema
 
