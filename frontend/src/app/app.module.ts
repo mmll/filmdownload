@@ -8,6 +8,7 @@ import { ResultItemComponent } from './result-item/result-item.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { FilmService } from './film.service';
 import { Film } from './entity/film';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Film } from './entity/film';
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     AppComponent,

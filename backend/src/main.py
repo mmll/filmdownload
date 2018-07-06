@@ -10,17 +10,6 @@ from entities.film import Film
 app = Flask(__name__)
 CORS(app)
 
-# def scrapZimuzu(self，domain, soup):
-#     filmItemList = soup.find_all('div', attrs={'class': 'search-item'})
-#     for item in filmItemList:
-#         title = item.find('strong', attrs={'class': 'list_title'}).text.strip()
-#         link = item.find('div', attrs={'class': 'fl-info'}).find('a').get('href')
-#         description = item.find('em').text.strip()
-#         film = Film(domain.name, title, link, description)
-#         result.append(film)
-#         print(film)
-#     return result
-
 def scrap_zimuzu(domain, soup):
     filmItemList = soup.find_all('div',attrs={'class':'search-item'})
     result = []

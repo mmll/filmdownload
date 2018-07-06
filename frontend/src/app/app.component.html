@@ -10,6 +10,7 @@
     <button mat-fab color="primary" (click)="SearchFilm(searchInput.value)">Search</button>
   </div>
   <mat-grid-list cols="4" rowHeight="2:1">
+    <mat-progress-spinner style='margin:0 auto' *ngIf='loading' mode="indeterminate"></mat-progress-spinner>
   	<div *ngFor="let item of films" class='content'>
   		<app-result-item [item] = "item"> </app-result-item>
   	</div>
