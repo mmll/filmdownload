@@ -9,11 +9,13 @@ import { HttpClientModule }  from '@angular/common/http';
 import { FilmService } from './film.service';
 import { Film } from './entity/film';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultItemComponent
+    ResultItemComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

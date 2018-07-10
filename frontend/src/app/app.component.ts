@@ -25,6 +25,11 @@ export class AppComponent implements OnInit{
   SearchFilm(value): void{
     this.films = [];
     this.loading = true;
-  	this.filmService.getResults(value).subscribe(res=>{(res.result)this.films = res.result;this.loading = false});
+  	this.filmService.getResults(value).subscribe(res=>{
+      if(res.result){
+        this.films = res.result;
+        this.loading = false;
+      }
+     });
   }
 }
