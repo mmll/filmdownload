@@ -23,7 +23,6 @@ export class AppComponent implements OnInit{
   ngOnInit(){
 
   }
-  nextFn, handleError, completeFn
   SearchFilm(value,event): void{
     if(event && event.keyCode !=13){
       return;
