@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import {Film} from '../entity/film';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-result-item',

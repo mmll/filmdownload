@@ -1,19 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <mat-toolbar>
+  <mat-toolbar color="primary">
     <span>Film Download</span>
   </mat-toolbar>
   <div>
+    <br>
     <mat-form-field class="example-full-width">
-      <input #searchInput  matInput placeholder="Film Seach" value="">
+      <input #searchInput  matInput (keyup)="SearchFilm(searchInput.value,$event)" placeholder="Film Seach" value="">
     </mat-form-field> 
-    <button mat-fab color="primary" (click)="SearchFilm(searchInput.value)">Search</button>
+    <button mat-fab color="primary" (click)="SearchFilm(searchInput.value)" autofocus>Search</button>
   </div>
+  <app-messages></app-messages>
   <mat-grid-list cols="4" rowHeight="2:1">
-    <mat-progress-spinner style='margin:0 auto' *ngIf='loading' mode="indeterminate"></mat-progress-spinner>
+    <mat-progress-bar style='margin:0 auto' *ngIf='loading' mode="indeterminate"></mat-progress-bar>
   	<div *ngFor="let item of films" class='content'>
   		<app-result-item [item] = "item"> </app-result-item>
   	</div>
-    <app-messages></app-messages>
+    
   </mat-grid-list>
 </div>

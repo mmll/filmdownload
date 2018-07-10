@@ -18,16 +18,15 @@ export class FilmService {
   }
 
   getResults(value): Observable<Object>{
+  this.messageService.clear()
    var url = this.configUrl + value;
-  	return this.http.get(url).pipe(
-  		tap(value=>this.log('fetched films')),
-  		catchError(this.handleError("get films",[])));
+  	return this.http.get(url)
   }
 
   private handleError<T>(operation = 'operation',result?: T){
   	return (error: any): Observable<T> =>{
   		console.error(error);
-  		this.log('${operation} failed: ${error.message}');
+  		this.log('There is some error.');
   		return of(result as T);
   	}
   }

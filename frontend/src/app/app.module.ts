@@ -8,7 +8,7 @@ import { ResultItemComponent } from './result-item/result-item.component';
 import { HttpClientModule }  from '@angular/common/http';
 import { FilmService } from './film.service';
 import { Film } from './entity/film';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { MessagesComponent } from './messages/messages.component';
     MatButtonModule,
     HttpClientModule,
     MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressBarModule
   ],
   exports: [
     AppComponent,

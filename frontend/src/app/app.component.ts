@@ -3,7 +3,8 @@ import {MatTableDataSource, MatInputModule} from '@angular/material';
 import {FilmService} from './film.service';
 import {Film} from './entity/film';
 import {ResultItemComponent} from './result-item/result-item.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MessageService} from './message.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit{
   title = '';
   films: Film[];
 
-  constructor(private filmService:FilmService){
+  constructor(private filmService:FilmService, private messageService: MessageService){
     this.films = [];
     this.loading = false;
 
@@ -22,14 +23,23 @@ export class AppComponent implements OnInit{
   ngOnInit(){
 
   }
-  SearchFilm(value): void{
+  nextFn, handleError, completeFn
+  SearchFilm(value,event): void{
+    if(event && event.keyCode !=13){
+      return;
+    }
     this.films = [];
     this.loading = true;
-  	this.filmService.getResults(value).subscribe(res=>{
+  	this.filmService.getResults(value).subscribe(
+      res=>{
       if(res.result){
         this.films = res.result;
         this.loading = false;
       }
-     });
+     },
+     res=>{
+       this.messageService.add("Some Error");
+       this.loading = false;
+     })
   }
 }
