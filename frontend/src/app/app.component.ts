@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
   title = '';
   films: Film[];
 
-  constructor(private filmService:FilmService, private messageService: MessageService){
+  constructor(private loading:Boolean , private filmService:FilmService, private messageService: MessageService){
     this.films = [];
     this.loading = false;
 
@@ -31,10 +31,8 @@ export class AppComponent implements OnInit{
     this.loading = true;
   	this.filmService.getResults(value).subscribe(
       res=>{
-      if(res.result){
-        this.films = res.result;
+        this.films = (<any>res).result;
         this.loading = false;
-      }
      },
      res=>{
        this.messageService.add("Some Error");
