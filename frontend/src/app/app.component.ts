@@ -14,8 +14,9 @@ import {MessageService} from './message.service';
 export class AppComponent implements OnInit{
   title = '';
   films: Film[];
+  loading: Boolean;
 
-  constructor(private loading:Boolean , private filmService:FilmService, private messageService: MessageService){
+  constructor(private filmService:FilmService, private messageService: MessageService){
     this.films = [];
     this.loading = false;
 

@@ -10,8 +10,7 @@ import {MessageService} from './message.service';
   providedIn: 'root'
 })
 export class FilmService {
- 
-  configUrl = 'http://localhost:5000/search/';
+  configUrl = window.location.protocol+"//"+window.location.hostname+':5000/search/';
   constructor(
   	private http: HttpClient,
   	private messageService: MessageService) {
