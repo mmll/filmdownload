@@ -18,7 +18,9 @@ def scrap_zimuzu(domain, soup):
     for item in filmItemList:
         link = domain.id + item.find('div', attrs={'class': 'fl-info'}).find('a').get('href')
         if "/resource/" in link:
-            title = item.find('strong', attrs={'class': 'list_title'}).text.strip()
+            title = ''
+            if hasattr(item.find('strong', attrs={'class': 'list_title'}),"text"):
+                title = item.find('strong', attrs={'class': 'list_title'}).text.strip()
             description = item.find('em').text.strip()
             film = Film(domain.name, title, link, description)
             result.append(film)
@@ -35,7 +37,9 @@ def scrap_tang(domain, soup):
     for item in filmItemTable:
         title = item.find("a").text
         link = domain.id + item.find("a").get('href')
-        description = item.find('td', attrs={'colspan': 3}).text.strip()
+        description = ''
+        if hasattr(item.find('td', attrs={'colspan': 3}),'text'):
+            description = item.find('td', attrs={'colspan': 3}).text.strip()
         film = Film(domain.name, title, link, description)
         result.append(film)
         print(film)
